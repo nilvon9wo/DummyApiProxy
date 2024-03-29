@@ -12,7 +12,7 @@ public class UserProvider(DummyApiSettings dummyApiSettings, HttpClient httpClie
 		using HttpRequestMessage request = CreateRequest(dummyApiSettings);
 		string content = await GetContent(httpClient, request);
 		return JsonSerializer.Deserialize<UserDataEnvelope>(content)?.Users
-			?? new();
+			?? [];
 	}
 
 	private static HttpRequestMessage CreateRequest(DummyApiSettings dummyApiSettings) 

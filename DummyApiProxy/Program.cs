@@ -8,9 +8,8 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 
 IHost host = new HostBuilder()
-	.ConfigureAppConfiguration((hostContext, config) 
-			=> config.ConfigureEnvironment(hostContext, args)
-		)
+	.ConfigureAppConfiguration((hostContext, config)
+			=> config.ConfigureEnvironment(hostContext, args))
 	.ConfigureFunctionsWebApplication()
 	.ConfigureServices((context, services) =>
 	{

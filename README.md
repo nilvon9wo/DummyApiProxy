@@ -37,7 +37,7 @@ Navigate to the root directory of the project and create a file named appsetting
 
 Replace SOME_VALID_API_KEY with your valid API key from dummyapi.io.
 
-1. **Start the Frontend**
+2. **Start the Frontend**
 
 Open a terminal, navigate to the userlist.frontend directory, and run:
 
@@ -48,14 +48,14 @@ Open a terminal, navigate to the userlist.frontend directory, and run:
 
 This will start the Vite+React development server.
 
-1. **Start the Backend**
+3. **Start the Backend**
+3. **Start the Backend**
 
 Open the DummyApiProxy project in Visual Studio 2022 (v17.9.5 or later) and start the debugging session. This will run the .NET isolated function that acts as a proxy.
 
 ## Usage
-The Swagger/OpenAPI documentation for the API can be accessed at http://localhost:7278/api/swagger/ui.
-The Vite+React frontend can be viewed at http://127.0.0.1:5173/.
-Explore the UI to view user profiles fetched through the .NET backend from dummyapi.io.
+* The Swagger/OpenAPI documentation for the API can be accessed at http://localhost:7278/api/swagger/ui.
+* The Vite+React frontend can be viewed at http://127.0.0.1:5173/.
 
 ## Contributing
 Feel free to fork the project and submit pull requests for any improvements or fixes.

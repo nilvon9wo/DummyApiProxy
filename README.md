@@ -7,9 +7,10 @@ This project demonstrates how to set up a simple user interface to view user pro
 To run this project, ensure you have the following installed:
 
 - Windows 10
-- .NET SDK 8.0.202
-- npm version 9.8.1
-- Node.js version 16.17.0
+- .NET SDK v8.0.202
+- npm version v9.8.1
+- Node.js version v16.17.0
+- Visual Studio 2022 v17.9.5
 
 This project has been tested under the above conditions. It might work under different environments, but compatibility is not guaranteed.
 
@@ -37,7 +38,7 @@ Navigate to the root directory of the project and create a file named appsetting
 
 Replace SOME_VALID_API_KEY with your valid API key from dummyapi.io.
 
-2. **Start the Frontend**
+3. **Start the Frontend**
 
 Open a terminal, navigate to the userlist.frontend directory, and run:
 
@@ -48,10 +49,9 @@ Open a terminal, navigate to the userlist.frontend directory, and run:
 
 This will start the Vite+React development server.
 
-3. **Start the Backend**
-3. **Start the Backend**
+4. **Start the Backend**
 
-Open the DummyApiProxy project in Visual Studio 2022 (v17.9.5 or later) and start the debugging session. This will run the .NET isolated function that acts as a proxy.
+Open the DummyApiProxy project in Visual Studio 2022 and start the debugging session. This will run the .NET isolated function that acts as a proxy.
 
 ## Usage
 * The Swagger/OpenAPI documentation for the API can be accessed at http://localhost:7278/api/swagger/ui.

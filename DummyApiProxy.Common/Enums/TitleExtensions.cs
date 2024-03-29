@@ -1,5 +1,7 @@
 ﻿using Ardalis.GuardClauses;
 
+using DummyApiProxy.Common.Models;
+
 using System.ComponentModel;
 using System.Reflection;
 
@@ -10,14 +12,22 @@ public static class TitleExtensions
 	private static readonly Dictionary<string, Title> _titleEnumByDescriptionString
 		= Enum.GetValues(typeof(Title))
 			  .Cast<Title>()
-			  .Select(title => (Title: title, Description: GetDescription(title)))
+			  .Select(title => new DescribedValue<Title>(title, GetDescription(title)))
 			  .Where(pair => pair.Description != null)
 			  .ToDictionary(
 					pair => pair.Description,
-					pair => pair.Title, StringComparer.OrdinalIgnoreCase
+					pair => pair.Value, StringComparer.OrdinalIgnoreCase
 				);
 
-	public static string GetDescription(this Enum value)
+	public static Title ToTitle(this string titleString)
+		=> _titleEnumByDescriptionString.TryGetValue(titleString, out Title title)
+			? title
+		: Title.None;
+
+	public static string ToDescription(this Title title)
+		=> title.GetDescription();
+
+	private static string GetDescription(this Enum value)
 	{
 		FieldInfo? field = Guard.Against.Null(value)
 			.GetType()
@@ -29,12 +39,4 @@ public static class TitleExtensions
 				? value.ToString()
 				: attribute.Description;
 	}
-
-	public static Title ToTitle(this string titleString)
-		=> _titleEnumByDescriptionString.TryGetValue(titleString, out Title title)
-			? title
-		: Title.None;
-
-	public static string ToDescription(this Title title)
-		=> title.GetDescription();
 }

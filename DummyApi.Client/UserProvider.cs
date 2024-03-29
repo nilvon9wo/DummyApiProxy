@@ -15,7 +15,7 @@ public class UserProvider(DummyApiSettings dummyApiSettings, HttpClient httpClie
 			?? [];
 	}
 
-	private static HttpRequestMessage CreateRequest(DummyApiSettings dummyApiSettings) 
+	private static HttpRequestMessage CreateRequest(DummyApiSettings dummyApiSettings)
 		=> new(HttpMethod.Get, $"/data/v1/user?limit={dummyApiSettings.DefaultPageLimit}");
 
 	private static async Task<string> GetContent(HttpClient httpClient, HttpRequestMessage request)

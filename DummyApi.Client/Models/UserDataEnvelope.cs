@@ -9,7 +9,7 @@ namespace DummyApi.Client.Models;
 public record UserDataEnvelope
 {
 	[JsonPropertyName("data")]
-	public Collection<User> Users { get; init;}
+	public Collection<User> Users { get; init; }
 
 	[JsonPropertyName("total")]
 	public int CountAtSource { get; init; }

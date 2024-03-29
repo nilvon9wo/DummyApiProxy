@@ -16,9 +16,9 @@ public static class LoggingExtensions
 	/// <remarks>
 	/// Required dependencies: Serilog, Serilog.AspNetCore, Destructurama.JsonNet; optional dependencies: sinks based on configuration.
 	/// </remarks>
-	public static T UseLogging<T>(this T builder) where T : IHostBuilder 
+	public static T UseLogging<T>(this T builder) where T : IHostBuilder
 		=> (T)builder
-			.UseSerilog((hostingContext, loggerConfig) 
+			.UseSerilog((hostingContext, loggerConfig)
 				=> _ = loggerConfig
 					.ReadFrom.Configuration(hostingContext.Configuration)
 					.Destructure.JsonNetTypes()
@@ -27,7 +27,7 @@ public static class LoggingExtensions
 					.Enrich.WithAzureWebAppsSlotName()
 					.Enrich.WithAspNetCoreEnvironment()
 			)
-			.ConfigureServices((hostingContext, services) 
+			.ConfigureServices((hostingContext, services)
 				=> _ = services.AddTransient<IStartupFilter, RequestLoggingStartupFilter>()
 			);
 }

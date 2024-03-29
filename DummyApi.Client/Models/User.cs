@@ -1,6 +1,7 @@
 ﻿using DummyApiProxy.Common.Enums;
 
 using System.Text.Json.Serialization;
+
 using CommonUser = DummyApiProxy.Common.Models.User;
 
 namespace DummyApi.Client.Models;
@@ -24,7 +25,7 @@ public record User
 	[JsonPropertyName("picture")]
 	public Uri PictureUrl { get; init; }
 
-	public CommonUser ToCommon() 
+	public CommonUser ToCommon()
 		=> new()
 		{
 			Id = Id,

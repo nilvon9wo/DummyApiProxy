@@ -3,10 +3,9 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 
-using Serilog.Core;
-
 using Serilog;
 using Serilog.Configuration;
+using Serilog.Core;
 
 namespace FluxSzerviz.DummyApiProxy.Host.Extensions;
 

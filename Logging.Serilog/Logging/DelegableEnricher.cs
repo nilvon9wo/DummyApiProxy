@@ -24,7 +24,7 @@ public class DelegableEnricher(
 		{
 			LogEventProperty property = Guard.Against.Null(propertyFactory)
 				.CreateProperty(_property, value, _destructureObjects);
-			
+
 			Guard.Against.Null(logEvent)
 				.AddPropertyIfAbsent(property);
 		}

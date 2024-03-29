@@ -18,7 +18,7 @@ public class EnvironmentVariableEnricher(string property, string variableName, s
 		{
 			LogEventProperty property = Guard.Against.Null(propertyFactory)
 				.CreateProperty(_property, value);
-			
+
 			Guard.Against.Null(logEvent)
 				.AddPropertyIfAbsent(property);
 		}

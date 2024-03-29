@@ -14,8 +14,8 @@ namespace FluxSzerviz.Logging.Serilog.Logging;
 [SuppressMessage("Performance", "CA1812: Avoid uninstantiated internal classes", Justification = "False negative")]
 internal sealed class RequestLoggingStartupFilter : IStartupFilter
 {
-	public Action<IApplicationBuilder> Configure(Action<IApplicationBuilder> next) 
-		=> app 
+	public Action<IApplicationBuilder> Configure(Action<IApplicationBuilder> next)
+		=> app
 			=>
 			{
 				_ = app.UseMiddleware<DetectAzureSlotSwapMiddleware>();

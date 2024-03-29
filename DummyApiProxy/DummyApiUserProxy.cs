@@ -24,6 +24,6 @@ public class DummyApiUserProxy(ILogger<DummyApiUserProxy> logger, UserProvider u
 		logger.InterpolatedInformation($"C# HTTP trigger function received a request.");
 		List<OutboundUser> users = await userProvider.GetUsers();
 		UsersResponse userResponse = UsersResponse.From(users);
-		return new OkObjectResult(userResponse); 
+		return new OkObjectResult(userResponse);
 	}
 }

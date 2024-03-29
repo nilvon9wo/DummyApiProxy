@@ -13,7 +13,7 @@ public static class LoggerEnrichmentConfigurationExtensions
 	public static LoggerConfiguration WithAzureWebAppsSiteName(this LoggerEnrichmentConfiguration enrichmentConfiguration)
 		=> enrichmentConfiguration.WithEnvironmentVariable("AzureWebAppsSiteName", "WEBSITE_SITE_NAME", "LOCAL");
 
-	public static LoggerConfiguration WithAzureWebAppsSlotName(this LoggerEnrichmentConfiguration enrichmentConfiguration) 
+	public static LoggerConfiguration WithAzureWebAppsSlotName(this LoggerEnrichmentConfiguration enrichmentConfiguration)
 		=> Guard.Against.Null(enrichmentConfiguration)
 			.With(
 			new DelegableEnricher("AzureWebAppsSlotName", () =>
@@ -37,9 +37,9 @@ public static class LoggerEnrichmentConfigurationExtensions
 		=> enrichmentConfiguration.WithEnvironmentVariable("AspNetCoreEnvironment", "ASPNETCORE_ENVIRONMENT");
 
 	private static LoggerConfiguration WithEnvironmentVariable(
-			this LoggerEnrichmentConfiguration enrichmentConfiguration, 
-			string property, 
-			string environmentVariable, 
+			this LoggerEnrichmentConfiguration enrichmentConfiguration,
+			string property,
+			string environmentVariable,
 			string? defaultValue = null
 		)
 	{

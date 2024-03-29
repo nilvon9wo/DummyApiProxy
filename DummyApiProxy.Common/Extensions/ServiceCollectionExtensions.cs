@@ -11,9 +11,9 @@ public static class ServiceCollectionExtensions
 {
 	[SuppressMessage("Design", "CA1021:Avoid out parameters", Justification = "Allows for more fluid programming.")]
 	public static IServiceCollection Configure<T>(
-			this IServiceCollection services, 
-			IConfiguration configuration, 
-			string configName, 
+			this IServiceCollection services,
+			IConfiguration configuration,
+			string configName,
 			out T? config
 		)
 		where T : class

@@ -1,4 +1,6 @@
-import React, { useState, useEffect } from 'react';
+import Header from '../../atoms/Header';
+import {useState, useEffect} from 'react';
+import User from '../users/UserItem';
 
 function UserList() {
   const [users, setUsers] = useState([]);
@@ -12,12 +14,10 @@ function UserList() {
 
   return (
     <div>
-      <h1>User List</h1>
+      <Header text="User List" />
       <ul>
         {users.map((user, index) => (
-          <li key={index}>
-            {user.firstName} {user.lastName}
-          </li>
+          <User key={index} user={user} />
         ))}
       </ul>
     </div>

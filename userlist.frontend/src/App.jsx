@@ -1,5 +1,4 @@
-import React from 'react';
-import UserList from './UserList';
+import UserList from './features/users/UserList';
 
 function App() {
   return (

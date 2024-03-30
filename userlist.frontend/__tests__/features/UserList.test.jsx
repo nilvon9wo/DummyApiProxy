@@ -12,6 +12,12 @@ describe('UserList component', () => {
       .get('/api/v1/users')
       .reply(200, { users: [{ id: 1, firstName: 'John', lastName: 'Doe' }] });
   });
+  beforeEach(() => {
+  process.env.TEST_API_URL = 'http://localhost:7278'; 
+  nock(process.env.TEST_API_URL)
+    .get('/api/v1/users')
+    .reply(200, { users: [{ id: 1, firstName: 'John', lastName: 'Doe' }] });
+});
 
   afterEach(() => {
     nock.cleanAll(); 

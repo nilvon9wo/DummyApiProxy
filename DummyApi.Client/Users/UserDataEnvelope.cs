@@ -1,5 +1,4 @@
-﻿using System.Collections.ObjectModel;
-using System.Text.Json.Serialization;
+﻿using System.Text.Json.Serialization;
 
 namespace DummyApi.Client.Models;
 
@@ -9,7 +8,7 @@ namespace DummyApi.Client.Models;
 public record UserDataEnvelope
 {
 	[JsonPropertyName("data")]
-	public Collection<User> Users { get; init; }
+	public ICollection<User> Users { get; init; }
 
 	[JsonPropertyName("total")]
 	public int CountAtSource { get; init; }

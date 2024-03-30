@@ -1,4 +1,4 @@
-﻿namespace DummyApi.Client.Configs;
+﻿namespace DummyApi.Client;
 
 public class DummyApiSettings
 {

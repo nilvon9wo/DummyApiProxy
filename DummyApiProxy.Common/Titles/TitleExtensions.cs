@@ -19,10 +19,12 @@ public static class TitleExtensions
 					pair => pair.Value, StringComparer.OrdinalIgnoreCase
 				);
 
-	public static Title ToTitle(this string titleString)
-		=> _titleEnumByDescriptionString.TryGetValue(titleString, out Title title)
-			? title
-		: Title.None;
+	public static Title ToTitle(this string titleString) 
+		=> string.IsNullOrWhiteSpace(titleString)
+			? Title.None
+			: _titleEnumByDescriptionString.TryGetValue(titleString.Trim(), out Title title)
+				? title
+				: Title.None;
 
 	public static string ToDescription(this Title title)
 		=> title.GetDescription();

@@ -18,11 +18,12 @@ public class DummyApiUserProxy(ILogger<DummyApiUserProxy> logger, UserProvider u
 	[OpenApiOperation(operationId: "GetMyData", tags: ["My API"], Summary = "Get data from my API")]
 	[OpenApiResponseWithBody(statusCode: HttpStatusCode.OK, contentType: "application/json", bodyType: typeof(UsersResponse))]
 	public async Task<IActionResult> GetUsers(
-			[HttpTrigger(AuthorizationLevel.Anonymous, "get", Route = "v1/users")] HttpRequest request
+			[HttpTrigger(AuthorizationLevel.Anonymous, "get", Route = "v1/users")] HttpRequest request,
+			CancellationToken cancellationToken
 		)
 	{
 		logger.InterpolatedInformation($"C# HTTP trigger function received a request.");
-		List<OutboundUser> users = await userProvider.GetUsers();
+		ICollection<OutboundUser> users = await userProvider.GetUsers(cancellationToken);
 		UsersResponse userResponse = UsersResponse.From(users);
 		return new OkObjectResult(userResponse);
 	}

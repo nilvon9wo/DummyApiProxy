@@ -1,11 +1,11 @@
 ﻿using Ardalis.GuardClauses;
-
 using DummyApi.Client.Configs;
-
+using DummyApi.Client.Extensions;
+using DummyApi.Client.Users;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 
-namespace DummyApi.Client.Extensions;
+namespace DummyApi.Client;
 public static class ServiceCollectionExtensions
 {
 	public static IServiceCollection AddDummyApiClient(this IServiceCollection services, IConfiguration configuration)

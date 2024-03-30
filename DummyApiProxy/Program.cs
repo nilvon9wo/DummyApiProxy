@@ -1,5 +1,4 @@
-using DummyApi.Client.Extensions;
-
+using DummyApi.Client;
 using FluxSzerviz.DummyApiProxy.Host.Extensions;
 using FluxSzerviz.DummyApiProxy.Host.Services;
 

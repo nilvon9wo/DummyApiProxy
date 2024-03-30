@@ -4,7 +4,7 @@ function ErrorAlert({message}) {
 }
 
 ErrorAlert.propTypes = {
-  message: PropTypes.string.isRequired,
+  message: PropTypes.string,
 };
 
 export default ErrorAlert;

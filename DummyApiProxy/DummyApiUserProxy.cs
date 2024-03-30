@@ -1,4 +1,10 @@
+using Ardalis.GuardClauses;
+
+using DotNetTips.Spargine.Extensions;
+
 using FluxSzerviz.DummyApiProxy.Host.Users;
+
+using LanguageExt;
 
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -21,9 +27,12 @@ public class DummyApiUserProxy(ILogger<DummyApiUserProxy> logger, UserProvider u
 			CancellationToken cancellationToken
 		)
 	{
+		_ = Guard.Against.Null(userProvider);
 		logger.InterpolatedInformation($"C# HTTP trigger function received a request.");
-		ICollection<OutboundUser> users = await userProvider.GetUsers(cancellationToken);
-		UsersResponse userResponse = UsersResponse.From(users);
-		return new OkObjectResult(userResponse);
+		TryAsync<IEnumerable<OutboundUser>> outboundUserAttempt = userProvider.GetUsers(cancellationToken);
+		IActionResult result = await outboundUserAttempt.Match(
+				Succ: users => result = new OkObjectResult(UsersResponse.From(users.ToCollection())),
+				Fail: _ => result = new StatusCodeResult(500));
+		return result;
 	}
 }

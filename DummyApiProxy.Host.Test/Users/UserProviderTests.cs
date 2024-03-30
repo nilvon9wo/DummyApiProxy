@@ -1,6 +1,8 @@
 ﻿using FluxSzerviz.DummyApi.Client.Users;
 using FluxSzerviz.TestUtilities.ResultFactories;
 
+using LanguageExt;
+
 using Moq;
 using Moq.AutoMock;
 
@@ -32,13 +34,15 @@ public class UserProviderTests
 		UserProvider userProviderUnderTest = mocker.CreateInstance<UserProvider>();
 
 		// Act
-		ICollection<OutboundUser> result = await userProviderUnderTest.GetUsers(cancellationToken);
+		TryAsync<IEnumerable<OutboundUser>> result = userProviderUnderTest.GetUsers(cancellationToken);
 
 		// Assert
-		Assert.NotNull(result);
-		Assert.Equal(dummyUsers.Count, result.Count);
-		Assert.Equal(dummyUsers.Select(u => u.FirstName), result.Select(u => u.FirstName));
-		Assert.Equal(dummyUsers.Select(u => u.LastName), result.Select(u => u.LastName));
+		Assert.True(await result.IsSucc());
+		_ = result.IfSucc(dummyUsers => {
+			Assert.Equal(dummyUsers.Count(), dummyUsers.Count());
+			Assert.Equal(dummyUsers.Select(u => u.FirstName), dummyUsers.Select(u => u.FirstName));
+			Assert.Equal(dummyUsers.Select(u => u.LastName), dummyUsers.Select(u => u.LastName));
+		});
 	}
 
 	[Fact]
@@ -56,10 +60,10 @@ public class UserProviderTests
 		UserProvider userProviderUnderTest = mocker.CreateInstance<UserProvider>();
 
 		// Act
-		ICollection<OutboundUser> result = await userProviderUnderTest.GetUsers(cancellationToken);
+		TryAsync<IEnumerable<OutboundUser>> result = userProviderUnderTest.GetUsers(cancellationToken);
 
 		// Assert
-		Assert.NotNull(result);
-		Assert.Empty(result);
+		Assert.True(await result.IsSucc());
+		_ = result.IfSucc(Assert.Empty);
 	}
 }

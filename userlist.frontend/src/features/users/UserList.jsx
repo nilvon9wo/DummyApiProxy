@@ -12,14 +12,20 @@ function UserList() {
     const baseUrl = getApiUrl();
     fetch(`${baseUrl}/api/v1/users`)
         .then((response) => {
-            if (!response.ok) {
+            const result = response?.json();
+            if (!result) {
               throw new Error(`Failed to fetch users: ${response.statusText}`);
             }
-            return response.json();
+
+            return result;
           })
         .then((data) => {
-            setUsers(data?.users);
-            setError(data?.error);
+            const {users, error} = data;
+            if (!users && !error) {
+                throw new Error("Response is missing data.");
+            }
+            setUsers(users);
+            setError(error);
           })
         .catch((error) => {
             console.error('Error fetching data:', error);

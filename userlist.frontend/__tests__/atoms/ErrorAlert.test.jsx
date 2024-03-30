@@ -17,19 +17,19 @@ describe('ErrorAlert component', () => {
     expect(container.firstChild).toBeNull();
   });
 
-    it('renders the error message in red when message is provided', () => {
-      // Arrange
-      const message = 'This is an error message';
+  it('renders the error message in red when message is provided', () => {
+    // Arrange
+    const message = 'This is an error message';
 
-      // Act
-      render(<ErrorAlert message={message} />);
+    // Act
+    render(<ErrorAlert message={message} />);
 
-      // Assert
-      const errorMessage = screen.getByText(message);
-      expect(errorMessage).toBeInTheDocument();
-      expect(errorMessage).toHaveTextContent(message);
-      expect(window.getComputedStyle(errorMessage).color).toMatch(/rgb\(255, 0, 0\)/);
-    });
+    // Assert
+    const errorMessage = screen.getByText(message);
+    expect(errorMessage).toBeInTheDocument();
+    expect(errorMessage).toHaveTextContent(message);
+    expect(window.getComputedStyle(errorMessage).color).toMatch(/rgb\(255, 0, 0\)/);
+  });
 
   it('renders nothing when message is null', () => {
     // Arrange

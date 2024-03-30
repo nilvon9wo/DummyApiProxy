@@ -1,4 +1,6 @@
-﻿using LanguageExt;
+﻿using FluxSzerviz.DummyApi.Client.Exceptions;
+
+using LanguageExt;
 
 using System.Text.Json;
 
@@ -9,16 +11,16 @@ namespace FluxSzerviz.DummyApi.Client.Users;
 public class UserClient(DummyApiSettings dummyApiSettings, HttpClient httpClient)
 {
 	public virtual TryAsync<ICollection<User>> GetUsers(CancellationToken cancellationToken)
-		=> TryAsync(async () =>
-		{
-			using HttpRequestMessage request = CreateRequest(dummyApiSettings);
-			return (await GetContent(httpClient, request, cancellationToken))
-				.Match(
-					Succ: content =>
-						JsonSerializer.Deserialize<UserDataEnvelope>(content)?.Users ?? [],
-					Fail: []
-				);
-		});
+		=> TryAsync(async () 
+			=> (await GetContent(httpClient, CreateRequest(dummyApiSettings), cancellationToken))
+			.Match(
+				Succ: content
+					=> JsonSerializer.Deserialize<UserDataEnvelope>(content)?.Users
+						?? throw new MalformedDataEnvelopeException("Malformed data received from Dummy API."),
+
+				Fail: exception
+					=> throw exception
+			));
 
 	private static HttpRequestMessage CreateRequest(DummyApiSettings dummyApiSettings)
 		=> new(HttpMethod.Get, $"/data/v1/user?limit={dummyApiSettings.DefaultPageLimit}");

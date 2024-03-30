@@ -103,8 +103,7 @@ public class UserProviderTests
 		Try<ICollection<User>> result = await providerUnderTest.GetUsers(token);
 
 		// Assert
-		Assert.True(result.IsSucc());
-		_ = result.IfSucc(actualUsers => Assert.Equal([], actualUsers));
+		Assert.True(result.IsFail());
 	}
 
 	private static DummyApiSettings CreateDummyApiSettings()

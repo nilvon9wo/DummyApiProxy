@@ -70,7 +70,7 @@ public class DummyApiUserProxyTests
 		IActionResult response = await proxyUnderTest.GetUsers(httpRequestMock.Object, cancellationToken);
 
 		// Assert
-		StatusCodeResult statusCodeResult = Assert.IsType<StatusCodeResult>(response);
-		Assert.Equal((int)HttpStatusCode.InternalServerError, statusCodeResult.StatusCode);
+		ObjectResult result = Assert.IsType<ObjectResult>(response);
+		Assert.Equal(StatusCodes.Status500InternalServerError, result.StatusCode);
 	}
 }

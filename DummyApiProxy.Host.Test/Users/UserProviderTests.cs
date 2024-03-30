@@ -63,7 +63,6 @@ public class UserProviderTests
 		TryAsync<IEnumerable<OutboundUser>> result = userProviderUnderTest.GetUsers(cancellationToken);
 
 		// Assert
-		Assert.True(await result.IsSucc());
-		_ = result.IfSucc(Assert.Empty);
+		Assert.True(await result.IsFail());
 	}
 }

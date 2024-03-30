@@ -13,13 +13,13 @@ function UserList() {
     fetch(`${baseUrl}/api/v1/users`)
         .then((response) => {
             if (!response.ok) {
-              throw new Error('Failed to fetch users');
+              throw new Error(`Failed to fetch users: ${response.statusText}`);
             }
             return response.json();
           })
         .then((data) => {
-            setUsers(data.users);
-            setError(null);
+            setUsers(data?.users);
+            setError(data?.error);
           })
         .catch((error) => {
             console.error('Error fetching data:', error);

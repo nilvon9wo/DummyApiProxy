@@ -31,8 +31,13 @@ public class DummyApiUserProxy(ILogger<DummyApiUserProxy> logger, UserProvider u
 		logger.InterpolatedInformation($"C# HTTP trigger function received a request.");
 		TryAsync<IEnumerable<OutboundUser>> outboundUserAttempt = userProvider.GetUsers(cancellationToken);
 		IActionResult result = await outboundUserAttempt.Match(
-				Succ: users => result = new OkObjectResult(UsersResponse.From(users.ToCollection())),
-				Fail: _ => result = new StatusCodeResult(500));
+				Succ: users 
+					=> result = new OkObjectResult(UsersResponse.From(users.ToCollection())),
+
+				Fail: exception 
+					=> result = new ObjectResult(UsersResponse.From(exception)) { 
+							StatusCode = StatusCodes.Status500InternalServerError
+						});
 		return result;
 	}
 }

@@ -1,5 +1,4 @@
-﻿using DummyApi.Client.Configs;
-using DummyApi.Client.Models;
+﻿using DummyApi.Client.Models;
 
 using LanguageExt;
 

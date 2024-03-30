@@ -1,7 +1,6 @@
 ﻿using Ardalis.GuardClauses;
-using DummyApi.Client.Configs;
-using DummyApi.Client.Extensions;
 using DummyApi.Client.Users;
+using DummyApiProxy.Common;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 

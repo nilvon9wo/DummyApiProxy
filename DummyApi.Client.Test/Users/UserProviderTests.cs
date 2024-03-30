@@ -1,7 +1,5 @@
 ﻿using System.Net;
 using System.Text.Json;
-
-using DummyApi.Client.Configs;
 using DummyApi.Client.Models;
 using DummyApi.Client.Users;
 
@@ -9,7 +7,7 @@ using LanguageExt;
 
 using Moq;
 
-namespace DummyApi.Client.Tests;
+namespace DummyApi.Client.Test.Users;
 
 public class UserProviderTests
 {
@@ -109,13 +107,13 @@ public class UserProviderTests
 		_ = result.IfSucc(actualUsers => Assert.Equal([], actualUsers));
 	}
 
-	private static DummyApiSettings CreateDummyApiSettings() 
+	private static DummyApiSettings CreateDummyApiSettings()
 		=> new()
-			{
-				ApiKey = Guid.NewGuid().ToString(),
-				BaseUrl = new Uri("http://www.example.com"),
-				DefaultPageLimit = 10
-			};
+		{
+			ApiKey = Guid.NewGuid().ToString(),
+			BaseUrl = new Uri("http://www.example.com"),
+			DefaultPageLimit = 10
+		};
 
 	private static Mock<HttpClient> CreateMockHttpClient(HttpResponseMessage message)
 	{

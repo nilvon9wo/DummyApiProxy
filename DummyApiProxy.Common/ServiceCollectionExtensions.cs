@@ -26,6 +26,6 @@ public static class ServiceCollectionExtensions
 
 		configSection.Bind(config);
 		return services.Configure<T>(configSection)
-			.AddSingleton(provider => provider.GetRequiredService<IOptions<T>>().Value);
+			.AddTransient(provider => provider.GetRequiredService<IOptions<T>>().Value);
 	}
 }

@@ -1,6 +1,8 @@
-﻿using DummyApiProxy.Common.Enums;
-using CommonUser = DummyApiProxy.Common.Models.User;
-namespace DummyApi.Client.Models.Tests;
+﻿using FluxSzerviz.DummyApiProxy.Common.Titles;
+
+using CommonUser = FluxSzerviz.DummyApiProxy.Common.Models.User;
+using DummyUser = FluxSzerviz.DummyApi.Client.Users.User;
+namespace FluxSzerviz.DummyApi.Client.Test.Users;
 
 public class UserTests
 {
@@ -8,7 +10,7 @@ public class UserTests
 	public void ToCommon_Converts_User_To_CommonUser()
 	{
 		// Arrange
-		User user = new()
+		DummyUser user = new()
 		{
 			Id = "1",
 			Title = "Mr",
@@ -33,13 +35,13 @@ public class UserTests
 	public void ToCommon_Null_PictureUrl_Results_In_Null_PictureUrl_In_CommonUser()
 	{
 		// Arrange
-		User user = new()
+		DummyUser user = new()
 		{
 			Id = "1",
 			Title = "Mr",
 			FirstName = "John",
 			LastName = "Doe",
-			PictureUrl = null 
+			PictureUrl = null
 		};
 
 		// Act
@@ -58,7 +60,7 @@ public class UserTests
 	public void ToCommon_Whitespace_Title_Results_In_None_Title_In_CommonUser()
 	{
 		// Arrange
-		User user = new()
+		DummyUser user = new()
 		{
 			Id = "1",
 			Title = "   ",
@@ -83,10 +85,10 @@ public class UserTests
 	public void ToCommon_Null_Title_Results_In_None_Title_In_CommonUser()
 	{
 		// Arrange
-		User user = new()
+		DummyUser user = new()
 		{
 			Id = "1",
-			Title = null, 
+			Title = null,
 			FirstName = "John",
 			LastName = "Doe",
 			PictureUrl = new Uri("http://example.com/picture.jpg")

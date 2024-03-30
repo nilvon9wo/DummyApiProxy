@@ -1,13 +1,13 @@
-﻿using System.Net;
-using System.Text.Json;
-using DummyApi.Client.Models;
-using DummyApi.Client.Users;
+﻿using FluxSzerviz.DummyApi.Client.Users;
 
 using LanguageExt;
 
 using Moq;
 
-namespace DummyApi.Client.Test.Users;
+using System.Net;
+using System.Text.Json;
+
+namespace FluxSzerviz.DummyApi.Client.Test.Users;
 
 public class UserProviderTests
 {

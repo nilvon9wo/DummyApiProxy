@@ -1,4 +1,6 @@
-﻿namespace DummyApiProxy.Common.Enums.Tests;
+﻿using FluxSzerviz.DummyApiProxy.Common.Titles;
+
+namespace FluxSzerviz.DummyApiProxy.Common.Test.Titles;
 
 public class TitleExtensionsTests
 {

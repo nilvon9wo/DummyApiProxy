@@ -1,4 +1,4 @@
-﻿namespace DummyApiProxy.Common.Models;
+﻿namespace FluxSzerviz.DummyApiProxy.Common.Models;
 
 internal record struct DescribedValue<T>(T Value, string Description)
 {

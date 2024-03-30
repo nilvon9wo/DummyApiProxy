@@ -1,10 +1,10 @@
-﻿using DummyApiProxy.Common.Enums;
+﻿using FluxSzerviz.DummyApiProxy.Common.Titles;
 
 using System.Text.Json.Serialization;
 
-using CommonUser = DummyApiProxy.Common.Models.User;
+using CommonUser = FluxSzerviz.DummyApiProxy.Common.Models.User;
 
-namespace DummyApi.Client.Models;
+namespace FluxSzerviz.DummyApi.Client.Users;
 
 #nullable disable
 // We can't control what DummyApi sends us, and we don't want missing values to result in errors

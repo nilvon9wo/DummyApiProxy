@@ -1,12 +1,14 @@
 ﻿using Ardalis.GuardClauses;
-using DummyApiProxy.Common;
+
+using FluxSzerviz.DummyApiProxy.Common;
+
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Options;
 
 using System.Diagnostics.CodeAnalysis;
 
-namespace DummyApiProxy.Common;
+namespace FluxSzerviz.DummyApiProxy.Common;
 public static class ServiceCollectionExtensions
 {
 	[SuppressMessage("Design", "CA1021:Avoid out parameters", Justification = "Allows for more fluid programming.")]

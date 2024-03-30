@@ -22,6 +22,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DummyApiProxy.Common.Test",
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DummyApi.Client.Test", "DummyApi.Client.Test\DummyApi.Client.Test.csproj", "{A635A192-A86C-48BF-BA2D-397698C87AF0}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DummyApiProxy.Host.Test", "DummyApiProxy.Host.Test\DummyApiProxy.Host.Test.csproj", "{E797E945-580B-40ED-B684-DFAFFAE963F9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestUtilities", "TestUtilities\TestUtilities.csproj", "{068CE85F-EE19-4678-94F3-0B393475196C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -58,6 +62,14 @@ Global
 		{A635A192-A86C-48BF-BA2D-397698C87AF0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A635A192-A86C-48BF-BA2D-397698C87AF0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A635A192-A86C-48BF-BA2D-397698C87AF0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E797E945-580B-40ED-B684-DFAFFAE963F9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E797E945-580B-40ED-B684-DFAFFAE963F9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E797E945-580B-40ED-B684-DFAFFAE963F9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E797E945-580B-40ED-B684-DFAFFAE963F9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{068CE85F-EE19-4678-94F3-0B393475196C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{068CE85F-EE19-4678-94F3-0B393475196C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{068CE85F-EE19-4678-94F3-0B393475196C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{068CE85F-EE19-4678-94F3-0B393475196C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

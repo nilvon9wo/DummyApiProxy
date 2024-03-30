@@ -1,6 +1,6 @@
-﻿using DummyApiProxy.Common.Enums;
+﻿using FluxSzerviz.DummyApiProxy.Common.Titles;
 
-namespace DummyApiProxy.Common.Models;
+namespace FluxSzerviz.DummyApiProxy.Common.Models;
 
 public record User
 {

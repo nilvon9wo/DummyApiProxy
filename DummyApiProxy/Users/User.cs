@@ -1,8 +1,8 @@
 ﻿using Ardalis.GuardClauses;
 
-using CommonUser = DummyApiProxy.Common.Models.User;
+using CommonUser = FluxSzerviz.DummyApiProxy.Common.Models.User;
 
-namespace FluxSzerviz.DummyApiProxy.Host.Models;
+namespace FluxSzerviz.DummyApiProxy.Host.Users;
 public class User
 {
 	public required string FirstName { get; init; }

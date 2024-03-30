@@ -1,4 +1,4 @@
-﻿namespace DummyApi.Client;
+﻿namespace FluxSzerviz.DummyApi.Client;
 
 public class DummyApiSettings
 {

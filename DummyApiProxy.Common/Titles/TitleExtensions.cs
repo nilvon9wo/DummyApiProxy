@@ -1,25 +1,25 @@
 ﻿using Ardalis.GuardClauses;
 
-using DummyApiProxy.Common.Models;
+using FluxSzerviz.DummyApiProxy.Common.Models;
 
 using System.ComponentModel;
 using System.Reflection;
 
-namespace DummyApiProxy.Common.Enums;
+namespace FluxSzerviz.DummyApiProxy.Common.Titles;
 
 public static class TitleExtensions
 {
 	private static readonly Dictionary<string, Title> _titleEnumByDescriptionString
 		= Enum.GetValues(typeof(Title))
 			  .Cast<Title>()
-			  .Select(title => new DescribedValue<Title>(title, GetDescription(title)))
+			  .Select(title => new DescribedValue<Title>(title, title.GetDescription()))
 			  .Where(pair => pair.Description != null)
 			  .ToDictionary(
 					pair => pair.Description,
 					pair => pair.Value, StringComparer.OrdinalIgnoreCase
 				);
 
-	public static Title ToTitle(this string titleString) 
+	public static Title ToTitle(this string titleString)
 		=> string.IsNullOrWhiteSpace(titleString)
 			? Title.None
 			: _titleEnumByDescriptionString.TryGetValue(titleString.Trim(), out Title title)

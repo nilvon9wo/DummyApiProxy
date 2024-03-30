@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel;
 
-namespace DummyApiProxy.Common.Enums;
+namespace FluxSzerviz.DummyApiProxy.Common.Titles;
 public enum Title
 {
 	[Description("Mr")]

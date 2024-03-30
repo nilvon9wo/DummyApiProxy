@@ -1,12 +1,12 @@
-using DummyApi.Client;
+using FluxSzerviz.DummyApi.Client;
 using FluxSzerviz.DummyApiProxy.Host.Extensions;
-using FluxSzerviz.DummyApiProxy.Host.Services;
+using FluxSzerviz.DummyApiProxy.Host.Users;
 
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 
-IHost host = new HostBuilder()
+new HostBuilder()
 	.ConfigureAppConfiguration((hostContext, config)
 			=> config.ConfigureEnvironment(hostContext, args))
 	.ConfigureFunctionsWebApplication()
@@ -17,6 +17,5 @@ IHost host = new HostBuilder()
 			.AddDummyApiClient(configuration)
 			.AddTransient<UserProvider>();
 	})
-	.Build();
-
-host.Run();
+	.Build()
+	.Run();

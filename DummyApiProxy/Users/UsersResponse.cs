@@ -1,5 +1,4 @@
-﻿
-namespace FluxSzerviz.DummyApiProxy.Host.Models;
+﻿namespace FluxSzerviz.DummyApiProxy.Host.Users;
 
 public record UsersResponse
 {

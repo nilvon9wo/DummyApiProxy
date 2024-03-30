@@ -1,4 +1,4 @@
-﻿namespace DummyApi.Client.Users;
+﻿namespace FluxSzerviz.DummyApi.Client.Users;
 
 public class UsersUnavailableException : Exception
 {

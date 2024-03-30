@@ -1,5 +1,4 @@
-using FluxSzerviz.DummyApiProxy.Host.Models;
-using FluxSzerviz.DummyApiProxy.Host.Services;
+using FluxSzerviz.DummyApiProxy.Host.Users;
 
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -9,7 +8,7 @@ using Microsoft.Extensions.Logging;
 
 using System.Net;
 
-using OutboundUser = FluxSzerviz.DummyApiProxy.Host.Models.User;
+using OutboundUser = FluxSzerviz.DummyApiProxy.Host.Users.User;
 namespace FluxSzerviz.DummyApiProxy.Host;
 
 public class DummyApiUserProxy(ILogger<DummyApiUserProxy> logger, UserProvider userProvider)

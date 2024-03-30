@@ -1,6 +1,6 @@
 ﻿using System.Text.Json.Serialization;
 
-namespace DummyApi.Client.Models;
+namespace FluxSzerviz.DummyApi.Client.Users;
 
 #nullable disable
 // We can't control what DummyApi sends us, and we don't want missing values to result in errors

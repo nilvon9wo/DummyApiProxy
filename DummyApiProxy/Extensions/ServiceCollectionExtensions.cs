@@ -11,7 +11,10 @@ namespace FluxSzerviz.DummyApiProxy.Host.Extensions;
 
 internal static class ServiceCollectionExtensions
 {
-	internal static IServiceCollection AddLoggingAndTelemetry(this IServiceCollection services, IConfiguration configuration)
+	internal static IServiceCollection AddLoggingAndTelemetry(
+			this IServiceCollection services,
+			IConfiguration configuration
+		)
 	{
 		LoggerConfiguration loggerConfiguration = new();
 		LoggerSettingsConfiguration settingsConfiguration = loggerConfiguration.ReadFrom;

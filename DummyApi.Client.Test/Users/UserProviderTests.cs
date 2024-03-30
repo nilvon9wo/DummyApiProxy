@@ -29,7 +29,7 @@ public class UserProviderTests
 		Mock<HttpClient> httpClientMock = CreateMockHttpClient(message);
 
 		CancellationToken token = default;
-		UserProvider providerUnderTest = new(dummyApiSettings, httpClientMock.Object);
+		UserClient providerUnderTest = new(dummyApiSettings, httpClientMock.Object);
 
 		// Act
 		Try<ICollection<User>> result = await providerUnderTest.GetUsers(token);
@@ -52,7 +52,7 @@ public class UserProviderTests
 		Mock<HttpClient> httpClientMock = CreateMockHttpClient(message);
 
 		CancellationToken token = default;
-		UserProvider providerUnderTest = new(dummyApiSettings, httpClientMock.Object);
+		UserClient providerUnderTest = new(dummyApiSettings, httpClientMock.Object);
 
 		// Act
 		Try<ICollection<User>> result = await providerUnderTest.GetUsers(token);
@@ -75,7 +75,7 @@ public class UserProviderTests
 		Mock<HttpClient> httpClientMock = CreateMockHttpClient(message);
 
 		CancellationToken token = default;
-		UserProvider providerUnderTest = new(dummyApiSettings, httpClientMock.Object);
+		UserClient providerUnderTest = new(dummyApiSettings, httpClientMock.Object);
 
 		// Act
 		Try<ICollection<User>> result = await providerUnderTest.GetUsers(token);
@@ -97,7 +97,7 @@ public class UserProviderTests
 		Mock<HttpClient> httpClientMock = CreateMockHttpClient(message);
 
 		CancellationToken token = default;
-		UserProvider providerUnderTest = new(dummyApiSettings, httpClientMock.Object);
+		UserClient providerUnderTest = new(dummyApiSettings, httpClientMock.Object);
 
 		// Act
 		Try<ICollection<User>> result = await providerUnderTest.GetUsers(token);

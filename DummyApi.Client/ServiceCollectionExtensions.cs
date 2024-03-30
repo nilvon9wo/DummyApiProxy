@@ -14,10 +14,10 @@ public static class ServiceCollectionExtensions
 		_ = Guard.Against.Null(configuration);
 
 		_ = services.Configure(configuration, "DummyApiSettings", out DummyApiSettings? dummyApiSettings)
-				.AddTransient<UserProvider>();
+				.AddTransient<UserClient>();
 
 		_ = Guard.Against.Null(dummyApiSettings);
-		_ = services.AddHttpClient<UserProvider>()
+		_ = services.AddHttpClient<UserClient>()
 			.ConfigureHttpClient((provider, client)
 				=>
 			{

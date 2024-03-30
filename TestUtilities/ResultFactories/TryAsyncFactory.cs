@@ -1,10 +1,6 @@
 ﻿using Ardalis.GuardClauses;
 
 using LanguageExt;
-using LanguageExt.ClassInstances.Pred;
-using LanguageExt.Common;
-
-using static LanguageExt.Prelude;
 
 namespace FluxSzerviz.TestUtilities.ResultFactories;
 public static class TryAsyncFactory
@@ -13,7 +9,7 @@ public static class TryAsyncFactory
 		=> new(async () => await Task.FromResult(Guard.Against.Null(value)));
 
 	public static TryAsync<T> CreateFailure<T>(Exception ex, T? value = default)
-		=> new(async () => await Task.Run<T>(() => ex != null
+		=> new(async () => await Task.Run(() => ex != null
 				? throw ex 
 				: value!
 		));

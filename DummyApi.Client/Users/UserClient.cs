@@ -6,7 +6,7 @@ using static LanguageExt.Prelude;
 
 namespace FluxSzerviz.DummyApi.Client.Users;
 
-public class UserProvider(DummyApiSettings dummyApiSettings, HttpClient httpClient)
+public class UserClient(DummyApiSettings dummyApiSettings, HttpClient httpClient)
 {
 	public virtual TryAsync<ICollection<User>> GetUsers(CancellationToken cancellationToken)
 		=> TryAsync(async () =>

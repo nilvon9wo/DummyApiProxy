@@ -1,5 +1,5 @@
 ﻿using OutboundUser = FluxSzerviz.DummyApiProxy.Host.Users.User;
-using UserClient = FluxSzerviz.DummyApi.Client.Users.UserProvider;
+using UserClient = FluxSzerviz.DummyApi.Client.Users.UserClient;
 
 namespace FluxSzerviz.DummyApiProxy.Host.Users;
 public class UserProvider(UserClient userProvider)
